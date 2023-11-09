@@ -22,7 +22,8 @@ namespace ViewModel
             user.Password = reader["password"].ToString();
             user.Gender = bool.Parse(reader["gender"].ToString());
             user.Phonenum = reader["phoneNum"].ToString();
-            user.ismanager = bool.Parse(reader["isManager"].ToString());
+            user.IsWorker = bool.Parse(reader["IsWorker"].ToString());
+            user.WorkerRank = int.Parse(reader["WorkerRank"].ToString());
             user.Birthday = DateTime.Parse(reader["birthday"].ToString());
             user.realid = reader["RealId"].ToString();
             return user;
@@ -30,7 +31,7 @@ namespace ViewModel
 
         protected override BaseEntity NewEntity()
         {
-            return new User();
+            return new  User() as BaseEntity;
         }
         // מביא את כל המשתמשים הקיימים במערכת
         public UserList SelectAll()

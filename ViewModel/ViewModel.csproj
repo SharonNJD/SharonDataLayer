@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionDB.cs" />
+    <Compile Include="BankAccountDB.cs" />
     <Compile Include="BaseBD.cs" />
+    <Compile Include="CustomersDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDB.cs" />
   </ItemGroup>

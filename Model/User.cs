@@ -18,8 +18,9 @@ namespace Model
         protected DateTime birthday;
         protected bool gender;
         protected string phoneNum;
-        protected bool isManager;
-        protected string RealId; 
+        protected bool isWorker;
+        protected string RealId;
+        protected int workerRank;
         
         
 
@@ -32,11 +33,11 @@ namespace Model
 
         public DateTime Birthday { get { return this.birthday; } set { this.birthday = value; } }
         public bool Gender { get { return this.gender; } set { this.gender = value; } }
-        public bool ismanager { get { return this.isManager; } set { this.isManager = value; } }
+        public bool IsWorker { get { return this.isWorker; } set { this.isWorker = value; } }
 
         public string Phonenum { get { return this.phoneNum; } set { this.phoneNum = value; } }
 
-        
+        public int WorkerRank { get {return workerRank; } set { value = workerRank; } }
     }
     public class UserList : List<User>
     {
