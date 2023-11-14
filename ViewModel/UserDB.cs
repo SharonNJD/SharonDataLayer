@@ -17,7 +17,7 @@ namespace ViewModel
             User user = entity as User;
             user.Id = int.Parse(reader["id"].ToString());
             user.FirstName = reader["firstName"].ToString();
-            user.LirstName = reader["lastName"].ToString();
+            user.LastName = reader["lastName"].ToString();
             user.Email = reader["email"].ToString();
             user.Password = reader["password"].ToString();
             user.Gender = bool.Parse(reader["gender"].ToString());
@@ -27,6 +27,22 @@ namespace ViewModel
             user.Birthday = DateTime.Parse(reader["birthday"].ToString());
             user.realid = reader["RealId"].ToString();
             return user;
+        }
+        protected override void LoadParameters(BaseEntity entity)
+        {
+            User user = entity as User;
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@firstName", user.FirstName);
+            command.Parameters.AddWithValue("@id", user.Id);
+            command.Parameters.AddWithValue("@lastName", user.LastName);
+            command.Parameters.AddWithValue("@email", user.Email);
+            command.Parameters.AddWithValue("@password", user.Password);
+            command.Parameters.AddWithValue("@gender", user.Gender);
+            command.Parameters.AddWithValue("@phoneNum", user.Phonenum);
+            command.Parameters.AddWithValue("@IsWorker", user.IsWorker);
+            command.Parameters.AddWithValue("@WorkerRank", user.WorkerRank);
+            command.Parameters.AddWithValue("@birthday", user.Birthday);
+            command.Parameters.AddWithValue("@RealId", user.realid);
         }
 
         protected override BaseEntity NewEntity()

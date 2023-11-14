@@ -36,6 +36,19 @@ namespace ViewModel
             BankAccountList list = new BankAccountList(ExecuteCommand());
             return list;
         }
+        protected override void LoadParameters(BaseEntity entity)
+        {
+            BankAccount bankAccount = entity as BankAccount;
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@CanLoan", bankAccount.canloan);
+            command.Parameters.AddWithValue("@CanTransferOverSeas", bankAccount.canTransferOverSeas);
+            command.Parameters.AddWithValue("@CanTradeStocks", bankAccount.canTradeStocks);
+            command.Parameters.AddWithValue("@AdultAcouunt", bankAccount.adultAcouunt);
+            command.Parameters.AddWithValue("@PersonalAcouunt", bankAccount.personalAcouunt);
+            command.Parameters.AddWithValue("@CustomerId", bankAccount.customerId);
+            command.Parameters.AddWithValue("@BankAcouuntNum", bankAccount.bankAcuuntNum);
+            command.Parameters.AddWithValue("@SecretCode", bankAccount.secretCode);
+        }
         public BankAccount SelectById(int id)
         {
             command.CommandText = $"SELECT * FROM tblBankAccount WHERE (CustomerId = {id})";

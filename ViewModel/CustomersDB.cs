@@ -22,6 +22,13 @@ namespace ViewModel
         
             return Customer;
         }
+        protected override void LoadParameters(BaseEntity entity)
+        {
+            Customers Customer = entity as Customers;
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@DateOfJoining", Customer.dateOfJoining);
+            command.Parameters.AddWithValue("@IsNative", Customer.isNative);
+        }
 
         protected override BaseEntity NewEntity()
         {

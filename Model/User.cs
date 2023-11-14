@@ -25,7 +25,7 @@ namespace Model
         
 
         public string FirstName { get { return this.firstName; } set { this.firstName = value; } }
-        public string LirstName { get { return this.lastName; } set { this.lastName = value; } }
+        public string LastName { get { return this.lastName; } set { this.lastName = value; } }
         public string Password { get { return this.password; } set { this.password = value; } }
         public string realid { get { return this.RealId; } set { this.RealId = value; } }
 

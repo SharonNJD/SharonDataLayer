@@ -18,9 +18,13 @@ namespace ViewModel
 
             protected abstract BaseEntity NewEntity();
             protected abstract BaseEntity CreateModel(BaseEntity entity);
+            protected abstract void LoadParameters(BaseEntity entity);
 
-           
-            public BaseDB()
+
+
+
+
+        public BaseDB()
             {
                 if (connectionString == null)
                 {
@@ -58,7 +62,26 @@ namespace ViewModel
                 }
                 return list;
             }
-            private static string Path()
+          public int ExecuteCRUD() //עבודה וניהול התקשורת מול המסד
+        {
+            int records = 0;
+            try
+            {
+                connection.Open(); //פתיחת תקשורת עם המסד
+                records = command.ExecuteNonQuery(); //ביצוע השאילתה                
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                    connection.Close();
+            }
+            return records;
+        }
+        private static string Path()
             {
                 string s = Environment.CurrentDirectory; //המיקום שבו רץ הפרויקט
                 string[] sub = s.Split('\\'); //פירוק מחרוזת הכתובת למערך לפי תיקיות
