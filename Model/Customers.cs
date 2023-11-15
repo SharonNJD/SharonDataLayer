@@ -10,7 +10,9 @@ namespace Model
     {
         private DateTime DateOfJoining;
         private bool IsNative;
+        private int UserID;
 
+        public int userID { get { return UserID; } set { UserID = value; } }
         public DateTime dateOfJoining { get { return DateOfJoining;} set { DateOfJoining = value; } }
         public bool isNative { get { return IsNative; } set { IsNative = value; } }
 

@@ -15,7 +15,7 @@ namespace ViewModel
         {
             Customers Customer = entity as Customers;
             Customer.dateOfJoining = DateTime.Parse(reader["DateOfJoining"].ToString());
-          
+          Customer.userID = int.Parse(reader["UserId"].ToString());
             Customer.isNative = bool.Parse(reader["IsNative"].ToString());
            
 
@@ -28,6 +28,27 @@ namespace ViewModel
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@DateOfJoining", Customer.dateOfJoining);
             command.Parameters.AddWithValue("@IsNative", Customer.isNative);
+        }
+        public int Insert(Customers Customer)
+        {
+            command.CommandText = "INSERT INTO tblCustomers (DateOfJoining,IsNative)" +
+                " VALUES (@DateOfJoining,@IsNative)";
+            LoadParameters(Customer);
+            return ExecuteCRUD();
+        }
+
+        public int Update(Customers Customer)
+        {
+            command.CommandText = "UPDATE tblCustomers SET DateOfJoining = @DateOfJoining,IsNative = @IsNative WHERE UserId = @UserId";
+            LoadParameters(Customer);
+            return ExecuteCRUD();
+        }
+
+        public int Delete(Customers Customer)
+        {
+            command.CommandText = "DELETE FROM tblCustomers WHERE UserId =@UserId";
+            LoadParameters(Customer);
+            return ExecuteCRUD();
         }
 
         protected override BaseEntity NewEntity()

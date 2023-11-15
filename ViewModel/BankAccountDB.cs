@@ -49,6 +49,26 @@ namespace ViewModel
             command.Parameters.AddWithValue("@BankAcouuntNum", bankAccount.bankAcuuntNum);
             command.Parameters.AddWithValue("@SecretCode", bankAccount.secretCode);
         }
+        public int Insert(BankAccount bank)
+        {
+            command.CommandText = "INSERT INTO tblBankAccount (SecretCode,CanLoan,CanTransferOverSeas,CanTradeStocks,AdultAcouunt,PersonalAcouunt,CustomerId) VALUES (@SecretCode,@CanLoan,@CanTransferOverSeas,@CanTradeStocks,@AdultAcouunt,@PersonalAcouunt,@CustomerId)";
+            LoadParameters(bank);
+            return ExecuteCRUD();
+        }
+
+        public int Update(BankAccount bank)
+        {
+            command.CommandText = "UPDATE tblBankAccount SET PersonalAcouunt = @PersonalAcouunt,CanLoan = @CanLoan,CanTransferOverSeas = @CanTransferOverSeas,CanTradeStocks = @CanTradeStocks,AdultAcouunt = @AdultAcouunt,CustomerId = @CustomerId,SecretCode = @SecretCode WHERE BankAcouuntNum = @BankAcouuntNum";
+            LoadParameters(bank);
+            return ExecuteCRUD();
+        }        
+        
+        public int Delete(BankAccount bank)
+        {
+            command.CommandText = "DELETE FROM tblBankAccount WHERE BankAcouuntNum =@BankAcouuntNum";
+            LoadParameters(bank);
+            return ExecuteCRUD();
+        }
         public BankAccount SelectById(int id)
         {
             command.CommandText = $"SELECT * FROM tblBankAccount WHERE (CustomerId = {id})";

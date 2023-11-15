@@ -44,6 +44,27 @@ namespace ViewModel
             command.Parameters.AddWithValue("@birthday", user.Birthday);
             command.Parameters.AddWithValue("@RealId", user.realid);
         }
+        public int Insert(User user)
+        {
+            command.CommandText = "INSERT INTO tblUsers (firstName,lastName,email,password,gender,phoneNum,IsWorker,WorkerRank,birthday,RealId)" +
+                " VALUES (@firstName,@lastName,@email,@password,@gender,@phoneNum,@IsWorker,@WorkerRank,@birthday,@RealId)";
+            LoadParameters(user);
+            return ExecuteCRUD();
+        }
+
+        public int Update(User user)
+        {
+            command.CommandText = "UPDATE tblUsers SET firstName = @firstName,lastName = @lastName,email = @email,password = @password,gender = @gender,phoneNum = @phoneNum,IsWorker = @IsWorker,WorkerRank = @WorkerRank,birthday = @birthday,RealId = @RealId WHERE id = @id";
+            LoadParameters(user);
+            return ExecuteCRUD();
+        }
+
+        public int Delete(User user)
+        {
+            command.CommandText = "DELETE FROM tblUsers WHERE id =@id";
+            LoadParameters(user);
+            return ExecuteCRUD();
+        }
 
         protected override BaseEntity NewEntity()
         {
