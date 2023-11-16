@@ -20,9 +20,11 @@ namespace ViewModel
             bankAccount.canTradeStocks = bool.Parse(reader["CanTradeStocks"].ToString());
             bankAccount.adultAcouunt = bool.Parse(reader["AdultAcouunt"].ToString());
             bankAccount.personalAcouunt = bool.Parse(reader["PersonalAcouunt"].ToString());
-            bankAccount.customerId = int.Parse(reader["CustomerId"].ToString());
             bankAccount.bankAcuuntNum = int.Parse(reader["BankAcouuntNum"].ToString());
             bankAccount.secretCode = int.Parse(reader["SecretCode"].ToString());
+
+            CustomersDB customersDB = new CustomersDB();
+            bankAccount.customer = customersDB.SelectById(int.Parse(reader["CustomerId"].ToString()));
             return bankAccount;
         }
 
@@ -45,7 +47,7 @@ namespace ViewModel
             command.Parameters.AddWithValue("@CanTradeStocks", bankAccount.canTradeStocks);
             command.Parameters.AddWithValue("@AdultAcouunt", bankAccount.adultAcouunt);
             command.Parameters.AddWithValue("@PersonalAcouunt", bankAccount.personalAcouunt);
-            command.Parameters.AddWithValue("@CustomerId", bankAccount.customerId);
+            command.Parameters.AddWithValue("@CustomerId", bankAccount.customer.Id);
             command.Parameters.AddWithValue("@BankAcouuntNum", bankAccount.bankAcuuntNum);
             command.Parameters.AddWithValue("@SecretCode", bankAccount.secretCode);
         }
@@ -58,7 +60,7 @@ namespace ViewModel
 
         public int Update(BankAccount bank)
         {
-            command.CommandText = "UPDATE tblBankAccount SET PersonalAcouunt = @PersonalAcouunt,CanLoan = @CanLoan,CanTransferOverSeas = @CanTransferOverSeas,CanTradeStocks = @CanTradeStocks,AdultAcouunt = @AdultAcouunt,CustomerId = @CustomerId,SecretCode = @SecretCode WHERE BankAcouuntNum = @BankAcouuntNum";
+            command.CommandText = "UPDATE tblBankAccount SET PersonalAcouunt = @PersonalAcouunt,CanLoan = @CanLoan,CanTransferOverSeas = @CanTransferOverSeas,CanTradeStocks = @CanTradeStocks,AdultAcouunt = @AdultAcouunt,Customer = @Customer,SecretCode = @SecretCode WHERE BankAcouuntNum = @BankAcouuntNum";
             LoadParameters(bank);
             return ExecuteCRUD();
         }        

@@ -15,11 +15,12 @@ namespace ViewModel
         {
             Customers Customer = entity as Customers;
             Customer.dateOfJoining = DateTime.Parse(reader["DateOfJoining"].ToString());
-          Customer.userID = int.Parse(reader["UserId"].ToString());
+         
             Customer.isNative = bool.Parse(reader["IsNative"].ToString());
-           
+            UserDB userDB = new UserDB();
+            Customer.User = userDB.SelectById(int.Parse(reader["UserId"].ToString()));
 
-        
+
             return Customer;
         }
         protected override void LoadParameters(BaseEntity entity)
@@ -28,6 +29,7 @@ namespace ViewModel
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@DateOfJoining", Customer.dateOfJoining);
             command.Parameters.AddWithValue("@IsNative", Customer.isNative);
+
         }
         public int Insert(Customers Customer)
         {

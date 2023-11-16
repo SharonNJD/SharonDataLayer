@@ -15,7 +15,7 @@ namespace Model
         private bool CanTradeStocks;
         private bool AdultAcouunt;
         private bool PersonalAcouunt;
-        private int CustomerId;
+        private Customers Customers;
 
 
         public int bankAcuuntNum { get { return BankAcuuntNum; } set { BankAcuuntNum = value; } }
@@ -26,7 +26,7 @@ namespace Model
         public bool adultAcouunt { get { return AdultAcouunt; } set { AdultAcouunt = value; } }
         public bool personalAcouunt { get { return PersonalAcouunt; } set { PersonalAcouunt = value; } }
 
-        public int customerId { get { return CustomerId; } set { CustomerId = value; } }
+        public Customers customer { get { return Customers; } set { Customers = value; } }
         public class BankAccountList : List<BankAccount>
         {
             //בנאי ברירת מחדל - אוסף ריק
