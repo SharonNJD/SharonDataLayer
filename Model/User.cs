@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Model
 {
+    [DataContract]
     public class User:BaseEntity
     {
         protected string firstName;
@@ -21,9 +23,9 @@ namespace Model
         protected bool isWorker;
         protected string RealId;
         protected int workerRank;
-        
-        
 
+
+        [DataMember]
         public string FirstName { get { return this.firstName; } set { this.firstName = value; } }
         public string LastName { get { return this.lastName; } set { this.lastName = value; } }
         public string Password { get { return this.password; } set { this.password = value; } }
