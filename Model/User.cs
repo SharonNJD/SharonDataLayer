@@ -27,20 +27,26 @@ namespace Model
 
         [DataMember]
         public string FirstName { get { return this.firstName; } set { this.firstName = value; } }
+        [DataMember]
         public string LastName { get { return this.lastName; } set { this.lastName = value; } }
+        [DataMember]
         public string Password { get { return this.password; } set { this.password = value; } }
+        [DataMember]
         public string realid { get { return this.RealId; } set { this.RealId = value; } }
-
+        [DataMember]
         public string Email { get { return this.email; } set { this.email = value; } }
-
+        [DataMember]
         public DateTime Birthday { get { return this.birthday; } set { this.birthday = value; } }
+        [DataMember]
         public bool Gender { get { return this.gender; } set { this.gender = value; } }
+        [DataMember]
         public bool IsWorker { get { return this.isWorker; } set { this.isWorker = value; } }
-
+        [DataMember]
         public string Phonenum { get { return this.phoneNum; } set { this.phoneNum = value; } }
-
+        [DataMember]
         public int WorkerRank { get {return workerRank; } set { value = workerRank; } }
     }
+    [CollectionDataContract]
     public class UserList : List<User>
     {
         //בנאי ברירת מחדל - אוסף ריק

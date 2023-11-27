@@ -86,6 +86,15 @@ namespace ViewModel
                 return null;
             return users[0];
         }
-        
+        public User Login(User user)
+        {
+            command.CommandText = $"SELECT * FROM tblUsers WHERE (RealId = '{user.realid}') " +
+                $"AND ([password] = '{user.Password}')";
+            UserList list = new UserList(base.ExecuteCommand());
+            if (list.Count == 1)
+                return list[0];
+            return null;
+        }
+
     }
 }

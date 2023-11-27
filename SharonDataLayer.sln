@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{BBC2F7DF-6782-4ECC-B9D0-DF857E0F889F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceModel", "ServiceModel\ServiceModel.csproj", "{E8658066-0AA9-41E2-9469-F4B3A2D7C70B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfHost", "WpfHost\WpfHost.csproj", "{A50E2EBF-4576-44FA-87F4-EEBE39E065D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{BBC2F7DF-6782-4ECC-B9D0-DF857E0F889F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBC2F7DF-6782-4ECC-B9D0-DF857E0F889F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBC2F7DF-6782-4ECC-B9D0-DF857E0F889F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8658066-0AA9-41E2-9469-F4B3A2D7C70B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8658066-0AA9-41E2-9469-F4B3A2D7C70B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8658066-0AA9-41E2-9469-F4B3A2D7C70B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8658066-0AA9-41E2-9469-F4B3A2D7C70B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A50E2EBF-4576-44FA-87F4-EEBE39E065D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A50E2EBF-4576-44FA-87F4-EEBE39E065D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A50E2EBF-4576-44FA-87F4-EEBE39E065D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A50E2EBF-4576-44FA-87F4-EEBE39E065D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
