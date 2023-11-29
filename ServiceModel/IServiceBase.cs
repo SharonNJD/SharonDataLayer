@@ -41,5 +41,11 @@ namespace ServiceModel
         [OperationContract] ActionList GetAllActions();
         // login
         [OperationContract] User UserLogin(User user);
+
+        [OperationContract] int Insertintoacountaction(AccountAction account);
+        [OperationContract] int UpdateIntoAcountAction(AccountAction account);
+        [OperationContract] int DeleteIntoAcountAction(AccountAction action);
+        [OperationContract] AccountActionList SelectAllAccountAction();
+        
     }
 }

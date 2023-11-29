@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ViewModel.AccountActionDB">
+    <Position X="9" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAAAACEAA=</HashCode>
+      <FileName>AccountActionDB .cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.BankAccountDB">
+    <Position X="13.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAAAACEAA=</HashCode>
+      <FileName>BankAccountDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.BaseDB">
+    <Position X="12.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAApAAAABAAAAAgQAAAAAAAAAAAASEAA=</HashCode>
+      <FileName>BaseBD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.CustomersDB">
+    <Position X="11.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAAAAACEAA=</HashCode>
+      <FileName>CustomersDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.UserDB">
+    <Position X="15.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAAAAAAAAAAAAgEAAAAAAAAQAAACEAA=</HashCode>
+      <FileName>UserDB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

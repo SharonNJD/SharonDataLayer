@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Model.MyAction;
 
 namespace ViewModel
 {
@@ -13,6 +12,7 @@ namespace ViewModel
         protected override BaseEntity CreateModel(BaseEntity entity)
         {
             MyAction action = new MyAction();
+            action.Id =int.Parse(reader["id"].ToString());
             action.actionName = reader["ActionName"].ToString();
             action.minRank = int.Parse(reader["MinRank"].ToString());
             action.commissionTaken = double.Parse(reader["CommissionTaken"].ToString());
@@ -42,14 +42,14 @@ namespace ViewModel
 
         public int Update(MyAction action)
         {
-            command.CommandText = "UPDATE tblAction SET ActionName = @ActionName, MinRank = @MinRank, CommissionTaken = @CommissionTaken WHERE ActionName = @ActionName";
+            command.CommandText = "UPDATE tblAction SET ActionName = @ActionName, MinRank = @MinRank, CommissionTaken = @CommissionTaken WHERE id = @id";
             LoadParameters(action);
             return ExecuteCRUD();
         }
 
         public int Delete(MyAction action)
         {
-            command.CommandText = "DELETE FROM tblAction WHERE ActionName =@ActionName";
+            command.CommandText = "DELETE FROM tblAction WHERE id =@id";
             LoadParameters(action);
             return ExecuteCRUD();
         }

@@ -29,6 +29,12 @@ namespace ServiceModel
             return db.Delete(customers);
         }
 
+        public int DeleteIntoAcountAction(AccountAction action)
+        {
+            AccountActionDB dB = new AccountActionDB();
+            return dB.Delete(action);
+        }
+
         public int DeleteUser(User user)
         {
             UserDB db = new UserDB();
@@ -68,6 +74,12 @@ namespace ServiceModel
             UserDB db = new UserDB();
             UserList myusers = db.SelectAll();
             return myusers;
+        }
+
+        public int Insertintoacountaction(AccountAction account)
+        {
+            AccountActionDB db = new AccountActionDB();
+            return db.Insert(account);
         }
 
         //public BankAccount GetBankAccountById(int id)
@@ -115,6 +127,15 @@ namespace ServiceModel
             return db.Insert(user);
         }
 
+       
+
+        public AccountActionList SelectAllAccountAction()
+        {
+            AccountActionDB db = new AccountActionDB();
+            AccountActionList mythings = db.SelectAll();
+            return mythings;
+        }
+
         public int UpdateAction(MyAction action)
         {
             ActionDB db = new ActionDB();
@@ -125,6 +146,12 @@ namespace ServiceModel
         {
             BankAccountDB db = new BankAccountDB();
             return db.Update(bankAccount);
+        }
+
+        public int UpdateIntoAcountAction(AccountAction account)
+        {
+            AccountActionDB db = new AccountActionDB();
+            return db.Update(account);
         }
 
         public int UpdateUser(User user)
@@ -145,5 +172,6 @@ namespace ServiceModel
             User myusers = userdb.Login(user);
             return myusers;
         }
+        
     }
 }

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountActionDB .cs" />
     <Compile Include="ActionDB.cs" />
     <Compile Include="BankAccountDB.cs" />
     <Compile Include="BaseBD.cs" />
@@ -58,6 +59,9 @@
     <Content Include="DB.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
