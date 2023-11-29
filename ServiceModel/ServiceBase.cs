@@ -41,13 +41,6 @@ namespace ServiceModel
             return db.Delete(user);
         }
 
-        //public MyAction GetActionById(int id)
-        //{
-        //    ActionDB db = new ActionDB();
-        //    MyAction myaction = db.SelectById(id);
-        //    return myaction;
-        //}
-
         public ActionList GetAllActions()
         {
             ActionDB db = new ActionDB();

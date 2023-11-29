@@ -14,16 +14,10 @@ namespace ViewModel
         {
             AccountAction actionac = new AccountAction();
             actionac.Id = int.Parse(reader["id"].ToString());
-            MyAction action = new MyAction();
             ActionDB actionDB = new ActionDB();
-            int id = int.Parse(reader["ActionId"].ToString());
-            action = actionDB.SelectById(id);
-            actionac.Action = action;
-            BankAccount bankAccount = new BankAccount();
+            actionac.Action = actionDB.SelectById(int.Parse(reader["ActionId"].ToString()));
             BankAccountDB bankAccountDB = new BankAccountDB();
-            id = int.Parse(reader["AcountId"].ToString());
-            bankAccount = bankAccountDB.SelectById(id);
-            actionac.BankAccount = bankAccount;
+            actionac.BankAccount = bankAccountDB.SelectById(int.Parse(reader["AcountId"].ToString()));
             actionac.Amount = int.Parse(reader["amount"].ToString());
             actionac.TimaStamp = DateTime.Parse(reader["TimeStamp"].ToString());
             return actionac;
