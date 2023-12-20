@@ -32,10 +32,10 @@ namespace ViewModel
             AccountAction action = entity as AccountAction;
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@ActionId", action.Action);
-            command.Parameters.AddWithValue("@id", action.Id);
             command.Parameters.AddWithValue("@AcountId", action.BankAccount);
             command.Parameters.AddWithValue("@amount", action.Amount);
             command.Parameters.AddWithValue("@TimeStamp", action.TimaStamp);
+            command.Parameters.AddWithValue("@id", action.Id);
         }
         public int Insert(AccountAction accountAction)
         {
