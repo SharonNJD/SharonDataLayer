@@ -42,6 +42,7 @@ namespace ViewModel
         {
             BankAccount bankAccount = entity as BankAccount;
             command.Parameters.Clear();
+            command.Parameters.AddWithValue("@SecretCode", bankAccount.secretCode);
             command.Parameters.AddWithValue("@CanLoan", bankAccount.canloan);
             command.Parameters.AddWithValue("@CanTransferOverSeas", bankAccount.canTransferOverSeas);
             command.Parameters.AddWithValue("@CanTradeStocks", bankAccount.canTradeStocks);
@@ -49,7 +50,7 @@ namespace ViewModel
             command.Parameters.AddWithValue("@PersonalAcouunt", bankAccount.personalAcouunt);
             command.Parameters.AddWithValue("@CustomerId", bankAccount.customer.Id);
             command.Parameters.AddWithValue("@BankAcouuntNum", bankAccount.bankAcuuntNum);
-            command.Parameters.AddWithValue("@SecretCode", bankAccount.secretCode);
+            
         }
         public int Insert(BankAccount bank)
         {

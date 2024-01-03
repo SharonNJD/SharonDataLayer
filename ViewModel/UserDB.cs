@@ -33,7 +33,6 @@ namespace ViewModel
             User user = entity as User;
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@firstName", user.FirstName);
-            command.Parameters.AddWithValue("@id", user.Id);
             command.Parameters.AddWithValue("@lastName", user.LastName);
             command.Parameters.AddWithValue("@email", user.Email);
             command.Parameters.AddWithValue("@password", user.Password);
@@ -43,6 +42,7 @@ namespace ViewModel
             command.Parameters.AddWithValue("@WorkerRank", user.WorkerRank);
             command.Parameters.AddWithValue("@birthday", user.Birthday);
             command.Parameters.AddWithValue("@RealId", user.realid);
+            command.Parameters.AddWithValue("@id", user.Id);
         }
         public int Insert(User user)
         {
@@ -88,8 +88,7 @@ namespace ViewModel
         }
         public User Login(User user)
         {
-            command.CommandText = $"SELECT * FROM tblUsers WHERE (RealId = '{user.realid}') " +
-                $"AND ([password] = '{user.Password}')";
+            command.CommandText = $"SELECT * FROM tblUsers WHERE (RealId = '{user.realid}') AND ([password] = '{user.Password}')";
             UserList list = new UserList(base.ExecuteCommand());
             if (list.Count == 1)
                 return list[0];

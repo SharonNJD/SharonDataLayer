@@ -28,9 +28,9 @@ namespace ViewModel
             MyAction action = entity as MyAction;
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@ActionName", action.actionName);
-            command.Parameters.AddWithValue("@id", action.Id);
             command.Parameters.AddWithValue("@MinRank", action.minRank);
             command.Parameters.AddWithValue("@CommissionTaken", action.commissionTaken);
+            command.Parameters.AddWithValue("@id", action.Id);
         }
         public int Insert(MyAction action)
         {
