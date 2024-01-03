@@ -40,13 +40,13 @@ namespace ViewModel
             command.Parameters.AddWithValue("@phoneNum", user.Phonenum);
             command.Parameters.AddWithValue("@IsWorker", user.IsWorker);
             command.Parameters.AddWithValue("@WorkerRank", user.WorkerRank);
-            command.Parameters.AddWithValue("@birthday", user.Birthday);
+            command.Parameters.AddWithValue("@birthday", user.Birthday.ToShortDateString());
             command.Parameters.AddWithValue("@RealId", user.realid);
             command.Parameters.AddWithValue("@id", user.Id);
         }
         public int Insert(User user)
         {
-            command.CommandText = "INSERT INTO tblUsers (firstName,lastName,email,password,gender,phoneNum,IsWorker,WorkerRank,birthday,RealId)" +
+            command.CommandText = "INSERT INTO tblUsers (firstName,lastName,email,[password],gender,phoneNum,IsWorker,WorkerRank,birthday,RealId)" +
                 " VALUES (@firstName,@lastName,@email,@password,@gender,@phoneNum,@IsWorker,@WorkerRank,@birthday,@RealId)";
             LoadParameters(user);
             return ExecuteCRUD();
