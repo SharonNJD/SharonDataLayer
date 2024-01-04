@@ -25,8 +25,10 @@ namespace WpfHost
         public MainWindow()
         {
             InitializeComponent();
-            ServiceHost service = new ServiceHost(typeof(ServiceBase));
-            service.Open();
+            ServiceHost service1 = new ServiceHost(typeof(ServiceBase));
+            ServiceHost service2 =new ServiceHost(typeof(MyCurrencyService));
+            service1.Open();
+            service2.Open();
         }
     }
 }
