@@ -40,7 +40,7 @@ namespace ViewModel
             command.Parameters.AddWithValue("@phoneNum", user.Phonenum);
             command.Parameters.AddWithValue("@IsWorker", user.IsWorker);
             command.Parameters.AddWithValue("@WorkerRank", user.WorkerRank);
-            command.Parameters.AddWithValue("@birthday", user.Birthday.ToShortDateString());
+            command.Parameters.AddWithValue("@birthday", user.Birthday.ToString("MM/dd/yyyy"));
             command.Parameters.AddWithValue("@RealId", user.realid);
             command.Parameters.AddWithValue("@id", user.Id);
         }

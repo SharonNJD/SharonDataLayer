@@ -6,15 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
+using System.Data.SqlClient;
 
 namespace ViewModel
 {
         public abstract class BaseDB
         {
-            protected OleDbConnection connection;
-            protected OleDbCommand command;
-            protected OleDbDataReader reader;
-            protected static string connectionString;
+
+        protected SqlConnection connection;
+        protected SqlCommand command;
+        protected SqlDataReader reader;
+
+        protected static string connectionString;
 
             protected abstract BaseEntity NewEntity();
             protected abstract BaseEntity CreateModel(BaseEntity entity);
@@ -28,13 +31,12 @@ namespace ViewModel
             {
                 if (connectionString == null)
                 {
-                    connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +
-                        Path() + @"\DB.accdb;Persist Security Info=True";
-                }
-                connection = new OleDbConnection(connectionString);
-                command = new OleDbCommand();
-                command.Connection = connection;
+                connectionString = @"Server=tcp:sharonprojectserver.database.windows.net,1433;Initial Catalog=SharonDataBaseProject;Persist Security Info=False;User ID=sharon;Password=Project2006;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             }
+              connection = new SqlConnection(connectionString);
+                command = new SqlCommand();
+               command.Connection = connection;
+        }
 
             public List<BaseEntity> ExecuteCommand() //עבודה וניהול התקשורת מול המסד
             {
