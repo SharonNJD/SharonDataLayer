@@ -20,6 +20,7 @@ namespace ViewModel
             actionac.BankAccount = bankAccountDB.SelectById(int.Parse(reader["AcountId"].ToString()));
             actionac.Amount = int.Parse(reader["amount"].ToString());
             actionac.TimaStamp = DateTime.Parse(reader["TimeStamp"].ToString());
+            actionac.toBankAcouunt = bankAccountDB.SelectById(int.Parse(reader["TobankAcouunt"].ToString()));
             return actionac;
         }
 
