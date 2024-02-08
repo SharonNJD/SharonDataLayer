@@ -75,19 +75,14 @@ namespace ServiceModel
             return db.Insert(account);
         }
 
-        //public BankAccount GetBankAccountById(int id)
-        //{
-        //    BankAccountDB db = new BankAccountDB();
-        //    BankAccount BankAccuunt = db.SelectById(id);
-        //    return BankAccuunt;
-        //}
+       
 
-        //public Customers GetCustomerById(int id)
-        //{
-        //    CustomersDB db = new CustomersDB();
-        //    Customers customers = db.SelectById(id);
-        //    return customers;
-        //}
+        public Customers GetCustomerByUser(User user1)
+        {
+            CustomersDB db = new CustomersDB();
+            Customers customers = db.SelectByGetById(user1);
+            return customers;
+        }
 
         //public User GetUserByID(int id)
         //{
@@ -165,6 +160,12 @@ namespace ServiceModel
             User myusers = userdb.Login(user);
             return myusers;
         }
-        
+
+        public BankAccount GetBankAccount(User user)
+        {
+            BankAccountDB db = new BankAccountDB();
+            BankAccount BankAccuunt = db.SelectByGetByIduser(user);
+            return BankAccuunt;
+        }
     }
 }

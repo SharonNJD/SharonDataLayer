@@ -29,12 +29,13 @@ namespace ViewModel
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@DateOfJoining", Customer.dateOfJoining);
             command.Parameters.AddWithValue("@IsNative", Customer.isNative);
+            command.Parameters.AddWithValue("@UserId", Customer.User.Id);
 
         }
         public int Insert(Customers Customer)
         {
-            command.CommandText = "INSERT INTO tblCustomers (DateOfJoining,IsNative)" +
-                " VALUES (@DateOfJoining,@IsNative)";
+            command.CommandText = "INSERT INTO tblCustomers (DateOfJoining,IsNative,UserId)" +
+                " VALUES (@DateOfJoining,@IsNative,@UserId)";
             LoadParameters(Customer);
             return ExecuteCRUD();
         }
@@ -66,6 +67,14 @@ namespace ViewModel
         public Customers SelectById(int id)
         {
             command.CommandText = $"SELECT * FROM tblCustomers WHERE (UserId = {id})";
+            CustomersList list = new CustomersList(base.ExecuteCommand());
+            if (list.Count == 1)
+                return list[0];
+            return null;
+        }
+        public Customers SelectByGetById(User user)
+        {
+            command.CommandText = $"SELECT * FROM tblCustomers WHERE (UserId = {user.Id})";
             CustomersList list = new CustomersList(base.ExecuteCommand());
             if (list.Count == 1)
                 return list[0];

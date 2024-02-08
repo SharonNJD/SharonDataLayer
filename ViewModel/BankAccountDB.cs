@@ -48,7 +48,7 @@ namespace ViewModel
             command.Parameters.AddWithValue("@CanTradeStocks", bankAccount.canTradeStocks);
             command.Parameters.AddWithValue("@AdultAcouunt", bankAccount.adultAcouunt);
             command.Parameters.AddWithValue("@PersonalAcouunt", bankAccount.personalAcouunt);
-            command.Parameters.AddWithValue("@CustomerId", bankAccount.customer.Id);
+            command.Parameters.AddWithValue("@CustomerId", bankAccount.customer.User.Id);
             command.Parameters.AddWithValue("@BankAcouuntNum", bankAccount.bankAcuuntNum);
             
         }
@@ -75,6 +75,14 @@ namespace ViewModel
         public BankAccount SelectById(int id)
         {
             command.CommandText = $"SELECT * FROM tblBankAccount WHERE (CustomerId = {id})";
+            BankAccountList list = new BankAccountList(base.ExecuteCommand());
+            if (list.Count == 1)
+                return list[0];
+            return null;
+        }
+        public BankAccount SelectByGetByIduser(User user)
+        {
+            command.CommandText = $"SELECT * FROM tblBankAccount WHERE (UserId = {user.Id})";
             BankAccountList list = new BankAccountList(base.ExecuteCommand());
             if (list.Count == 1)
                 return list[0];

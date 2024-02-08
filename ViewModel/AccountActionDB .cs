@@ -36,19 +36,20 @@ namespace ViewModel
             command.Parameters.AddWithValue("@AcountId", action.BankAccount);
             command.Parameters.AddWithValue("@amount", action.Amount);
             command.Parameters.AddWithValue("@TimeStamp", action.TimaStamp);
+            command.Parameters.AddWithValue("@TobankAcouunt", action.BankAccount);
             command.Parameters.AddWithValue("@id", action.Id);
         }
         public int Insert(AccountAction accountAction)
         {
-            command.CommandText = "INSERT INTO tblActionInAccount (ActionId,AcountId,amount,TimeStamp)" +
-                " VALUES (@ActionId,@AcountId,@amount,@TimeStamp)";
+            command.CommandText = "INSERT INTO tblActionInAccount (ActionId,AcountId,amount,TimeStamp,TobankAcouunt)" +
+                " VALUES (@ActionId,@AcountId,@amount,@TimeStamp,@TobankAcouunt)";
             LoadParameters(accountAction);
             return ExecuteCRUD();
         }
 
         public int Update(AccountAction accountAction)
         {
-            command.CommandText = "UPDATE tblActionInAccount SET ActionId = @ActionId, AcountId = @AcountId, amount = @amount,TimeStamp = @TimeStamp WHERE id = @id";
+            command.CommandText = "UPDATE tblActionInAccount SET ActionId = @ActionId, AcountId = @AcountId, amount = @amount,TimeStamp = @TimeStamp,TobankAcouunt = @TobankAcouunt WHERE id = @id";
             LoadParameters(accountAction);
             return ExecuteCRUD();
         }

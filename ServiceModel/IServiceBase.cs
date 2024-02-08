@@ -25,6 +25,7 @@ namespace ServiceModel
         [OperationContract] int InsertIntoBankAcouunt(BankAccount bankAccount);
         [OperationContract] int UpdateBankAcouunt(BankAccount bankAccount);
 
+        [OperationContract] Customers GetCustomerByUser(User user);
         [OperationContract] int DeleteBankAcouunt(BankAccount bankAccount);
        // [OperationContract] BankAccount GetBankAccountById(int id);
         // Customers
@@ -41,7 +42,7 @@ namespace ServiceModel
         [OperationContract] ActionList GetAllActions();
         // login
         [OperationContract] User UserLogin(User user);
-
+        [OperationContract] BankAccount GetBankAccount(User user);
         [OperationContract] int Insertintoacountaction(AccountAction account);
         [OperationContract] int UpdateIntoAcountAction(AccountAction account);
         [OperationContract] int DeleteIntoAcountAction(AccountAction action);
