@@ -16,6 +16,9 @@ namespace ViewModel
             action.actionName = reader["ActionName"].ToString();
             action.minRank = int.Parse(reader["MinRank"].ToString());
             action.commissionTaken = double.Parse(reader["CommissionTaken"].ToString());
+            action.Adding = bool.Parse(reader["Adding"].ToString());
+            action.CoinForeign = bool.Parse(reader["CoinForeign"].ToString());
+            action.coinSymbol = reader["CoinSymbol"].ToString();
             return action;
         }
 
@@ -30,19 +33,22 @@ namespace ViewModel
             command.Parameters.AddWithValue("@ActionName", action.actionName);
             command.Parameters.AddWithValue("@MinRank", action.minRank);
             command.Parameters.AddWithValue("@CommissionTaken", action.commissionTaken);
+            command.Parameters.AddWithValue("@Adding", action.Adding);
+            command.Parameters.AddWithValue("@CoinForeign", action.CoinForeign);
+            command.Parameters.AddWithValue("@CoinSymbol", action.coinSymbol);
             command.Parameters.AddWithValue("@id", action.Id);
         }
         public int Insert(MyAction action)
         {
-            command.CommandText = "INSERT INTO tblAction (ActionName,MinRank,CommissionTaken)" +
-                " VALUES (@ActionName,@MinRank,@CommissionTaken)";
+            command.CommandText = "INSERT INTO tblAction (ActionName,MinRank,CommissionTaken,Adding,CoinForeign,CoinSymbol)" +
+                " VALUES (@ActionName,@MinRank,@CommissionTaken,@CoinSymbol,@Adding,@CoinForeign)";
             LoadParameters(action);
             return ExecuteCRUD();
         }
 
         public int Update(MyAction action)
         {
-            command.CommandText = "UPDATE tblAction SET ActionName = @ActionName, MinRank = @MinRank, CommissionTaken = @CommissionTaken WHERE id = @id";
+            command.CommandText = "UPDATE tblAction SET ActionName = @ActionName, MinRank = @MinRank, CommissionTaken = @CommissionTaken,Adding = @Adding,CoinForeign = @CoinForeign,CoinSymbol = @CoinSymbol WHERE id = @id";
             LoadParameters(action);
             return ExecuteCRUD();
         }
