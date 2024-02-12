@@ -5,8 +5,9 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using static CurrencyModel.Currency;
 
-namespace ServiceModel
+namespace CurrencyService
 {
     [ServiceContract]
     public interface ICurrencyService

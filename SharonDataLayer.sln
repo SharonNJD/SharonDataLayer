@@ -11,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceModel", "ServiceMode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfHost", "WpfHost\WpfHost.csproj", "{A50E2EBF-4576-44FA-87F4-EEBE39E065D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyModel", "..\..\..\Downloads\CurrencyModel\CurrencyModel\CurrencyModel\CurrencyModel.csproj", "{BCCEB866-2538-429B-B876-43E3D0808159}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyModel", "CurrencyModel\CurrencyModel.csproj", "{BCCEB866-2538-429B-B876-43E3D0808159}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyBL", "..\..\..\Downloads\CurrencyModel\CurrencyModel\CurrencyBL\CurrencyBL.csproj", "{CB3395AF-AF3A-4650-8205-0A36687C93A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyService", "CurrencyService\CurrencyService.csproj", "{4E65E5EC-4F1F-4B7C-93D8-C4D1688CC64B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyService", "..\..\..\Downloads\CurrencyModel\CurrencyModel\CurrencyService\CurrencyService.csproj", "{4E65E5EC-4F1F-4B7C-93D8-C4D1688CC64B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyBL", "CurrencyBL\CurrencyBL.csproj", "{CB3395AF-AF3A-4650-8205-0A36687C93A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,14 +43,14 @@ Global
 		{BCCEB866-2538-429B-B876-43E3D0808159}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCCEB866-2538-429B-B876-43E3D0808159}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCCEB866-2538-429B-B876-43E3D0808159}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CB3395AF-AF3A-4650-8205-0A36687C93A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB3395AF-AF3A-4650-8205-0A36687C93A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB3395AF-AF3A-4650-8205-0A36687C93A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB3395AF-AF3A-4650-8205-0A36687C93A8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E65E5EC-4F1F-4B7C-93D8-C4D1688CC64B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E65E5EC-4F1F-4B7C-93D8-C4D1688CC64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E65E5EC-4F1F-4B7C-93D8-C4D1688CC64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E65E5EC-4F1F-4B7C-93D8-C4D1688CC64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB3395AF-AF3A-4650-8205-0A36687C93A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB3395AF-AF3A-4650-8205-0A36687C93A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB3395AF-AF3A-4650-8205-0A36687C93A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB3395AF-AF3A-4650-8205-0A36687C93A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E8658066-0AA9-41E2-9469-F4B3A2D7C70B}</ProjectGuid>
+    <ProjectGuid>{4E65E5EC-4F1F-4B7C-93D8-C4D1688CC64B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ServiceModel</RootNamespace>
-    <AssemblyName>ServiceModel</AssemblyName>
+    <RootNamespace>CurrencyService</RootNamespace>
+    <AssemblyName>CurrencyService</AssemblyName>
     <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -40,40 +40,24 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICurrencyService.cs" />
-    <Compile Include="IServiceBase.cs" />
     <Compile Include="MyCurrencyService.cs" />
+    <Compile Include="ICurrencyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CurrencyBL\CurrencyBL.csproj">
-      <Project>{cb3395af-af3a-4650-8205-0a36687c93a8}</Project>
+      <Project>{CB3395AF-AF3A-4650-8205-0A36687C93A8}</Project>
       <Name>CurrencyBL</Name>
     </ProjectReference>
     <ProjectReference Include="..\CurrencyModel\CurrencyModel.csproj">
       <Project>{bcceb866-2538-429b-b876-43e3d0808159}</Project>
       <Name>CurrencyModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CurrencyService\CurrencyService.csproj">
-      <Project>{4e65e5ec-4f1f-4b7c-93d8-c4d1688cc64b}</Project>
-      <Name>CurrencyService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{a78488de-10bc-4cb6-a1a6-e19e2b6d66ba}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ViewModel\ViewModel.csproj">
-      <Project>{bbc2f7df-6782-4ecc-b9d0-df857e0f889f}</Project>
-      <Name>ViewModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagramService.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
