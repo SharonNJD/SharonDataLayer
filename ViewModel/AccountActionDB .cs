@@ -32,11 +32,11 @@ namespace ViewModel
         {
             AccountAction action = entity as AccountAction;
             command.Parameters.Clear();
-            command.Parameters.AddWithValue("@ActionId", action.Action);
-            command.Parameters.AddWithValue("@AcountId", action.BankAccount);
+            command.Parameters.AddWithValue("@ActionId", action.Action.Id);
+            command.Parameters.AddWithValue("@AcountId", action.BankAccount.bankAcuuntNum);
             command.Parameters.AddWithValue("@amount", action.Amount);
             command.Parameters.AddWithValue("@TimeStamp", action.TimaStamp);
-            command.Parameters.AddWithValue("@TobankAcouunt", action.BankAccount);
+            command.Parameters.AddWithValue("@TobankAcouunt", action.BankAccount.bankAcuuntNum);
             command.Parameters.AddWithValue("@id", action.Id);
         }
         public int Insert(AccountAction accountAction)
@@ -75,6 +75,21 @@ namespace ViewModel
             if (list.Count > 0)
                 return list[0];
             return null;
+        }
+
+        public AccountActionList SelectByBankAcouuntTo(int id)
+        {
+            command.CommandText = "SELECT * FROM tblActionInAccount WHERE TobankAcouunt=" + id;
+            AccountActionList list = new AccountActionList(ExecuteCommand());
+            return list;
+
+        }
+        public AccountActionList SelectByBankAcouuntFrom(int id)
+        {
+            command.CommandText = "SELECT * FROM tblActionInAccount WHERE AcountId=" + id;
+            AccountActionList list = new AccountActionList(ExecuteCommand());
+            return list;
+
         }
     }
 }

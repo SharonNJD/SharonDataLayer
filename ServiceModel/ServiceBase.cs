@@ -83,13 +83,19 @@ namespace ServiceModel
             Customers customers = db.SelectByGetById(user1);
             return customers;
         }
+        public AccountActionList GetAccountActionByBankAcouunt(int id)
+        {
+            AccountActionDB db = new AccountActionDB();
+            AccountActionList List = db.SelectByBankAcouuntTo(id);
+            return List;
+        }
 
-        //public User GetUserByID(int id)
-        //{
-        //    UserDB db = new UserDB();
-        //    User user = db.SelectById(id);
-        //    return user;
-        //}
+        public User GetUserByID(int id)
+        {
+            UserDB db = new UserDB();
+            User user = db.SelectById(id);
+            return user;
+        }
 
         public int InsertIntoAction(MyAction action)
         {
@@ -114,6 +120,7 @@ namespace ServiceModel
             UserDB db = new UserDB();
             return db.Insert(user);
         }
+        
 
        
 
@@ -167,5 +174,19 @@ namespace ServiceModel
             BankAccount BankAccuunt = db.SelectByGetByIduser(user);
             return BankAccuunt;
         }
+        public BankAccount GetBankAcouuntByNum(int num)
+        {
+            BankAccountDB db = new BankAccountDB();
+            BankAccount bankacouunt = db.GetBankAccountByBankNum(num);
+            return bankacouunt;
+        }
+        public AccountActionList GetbankAcouuntthattransfer(int id)
+        {
+            AccountActionDB db = new AccountActionDB();
+            AccountActionList List = db.SelectByBankAcouuntFrom(id);
+            return List;
+        }
+
+        
     }
 }
