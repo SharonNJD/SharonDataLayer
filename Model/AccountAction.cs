@@ -14,7 +14,7 @@ namespace Model
         private BankAccount bankAccount;
         private double amount;
         private DateTime timesamp;
-        private BankAccount ToBankAcouunt;
+        private BankAccount toBankAcouunt;
         [DataMember]
         public MyAction Action { get { return action; } set { action = value; } }
         [DataMember]
@@ -24,7 +24,7 @@ namespace Model
         [DataMember]
         public DateTime TimaStamp { get { return timesamp; } set { timesamp = value; } }
         [DataMember]
-        public BankAccount toBankAcouunt { get { return bankAccount; } set { bankAccount = value; } }
+        public BankAccount ToBankAcouunt { get { return toBankAcouunt; } set { toBankAcouunt = value; } }
 
     }
     [CollectionDataContract]

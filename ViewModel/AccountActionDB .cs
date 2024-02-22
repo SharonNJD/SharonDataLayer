@@ -20,7 +20,7 @@ namespace ViewModel
             actionac.BankAccount = bankAccountDB.SelectById(int.Parse(reader["AcountId"].ToString()));
             actionac.Amount = int.Parse(reader["amount"].ToString());
             actionac.TimaStamp = DateTime.Parse(reader["TimeStamp"].ToString());
-            actionac.toBankAcouunt = bankAccountDB.SelectById(int.Parse(reader["TobankAcouunt"].ToString()));
+            actionac.ToBankAcouunt = bankAccountDB.SelectById(int.Parse(reader["TobankAcouunt"].ToString()));
             return actionac;
         }
 
@@ -36,7 +36,7 @@ namespace ViewModel
             command.Parameters.AddWithValue("@AcountId", action.BankAccount.bankAcuuntNum);
             command.Parameters.AddWithValue("@amount", action.Amount);
             command.Parameters.AddWithValue("@TimeStamp", action.TimaStamp);
-            command.Parameters.AddWithValue("@TobankAcouunt", action.BankAccount.bankAcuuntNum);
+            command.Parameters.AddWithValue("@TobankAcouunt", action.ToBankAcouunt.bankAcuuntNum);
             command.Parameters.AddWithValue("@id", action.Id);
         }
         public int Insert(AccountAction accountAction)
