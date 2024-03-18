@@ -187,6 +187,13 @@ namespace ServiceModel
             return List;
         }
 
+        public BankAccountList GetAllBankAcouuntsByUser(User user)
+        {
+            BankAccountDB db = new BankAccountDB();
+            BankAccountList list = db.GetBankAcouuntsByUser(user);
+            return list;
+        }
+
         
     }
 }

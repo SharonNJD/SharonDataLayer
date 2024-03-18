@@ -53,6 +53,7 @@ namespace ServiceModel
         [OperationContract] int DeleteIntoAcountAction(AccountAction action);
         [OperationContract] AccountActionList SelectAllAccountAction();
 
+        [OperationContract] BankAccountList GetAllBankAcouuntsByUser(User user);
         [OperationContract] AccountActionList GetAccountActionByBankAcouunt(int id);
         
     }

@@ -88,7 +88,14 @@ namespace ViewModel
                 return list[0];
             return null;
         }
-
+        public BankAccountList GetBankAcouuntsByUser(User user)
+        {
+            command.CommandText = $"SELECT * FROM tblBankAccount WHERE (CustomerId = {user.Id})";
+            BankAccountList list = new BankAccountList(base.ExecuteCommand());
+            if (list.Count >= 1)
+                return list;
+            return null;
+        }
         public BankAccount GetBankAccountByBankNum(int num)
         {
             command.CommandText = $"SELECT * FROM tblBankAccount WHERE (BankAcouuntNum = {num})";
@@ -97,5 +104,6 @@ namespace ViewModel
                 return list[0];
             return null;
         }
+
     }
 }
