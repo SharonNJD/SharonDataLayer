@@ -194,6 +194,11 @@ namespace ServiceModel
             return list;
         }
 
-        
+        public User GetUserByRealId(int realId)
+        {
+            UserDB userdb = new UserDB();
+            User myusers = userdb.SelectByRealId(realId);
+            return myusers;
+        }
     }
 }

@@ -31,9 +31,10 @@ namespace ServiceModel
 
         [OperationContract] Customers GetCustomerByUser(User user);
         [OperationContract] int DeleteBankAcouunt(BankAccount bankAccount);
-       // [OperationContract] BankAccount GetBankAccountById(int id);
+        // [OperationContract] BankAccount GetBankAccountById(int id);
         // Customers
 
+        [OperationContract] User GetUserByRealId(int realId);
         [OperationContract] int InsertIntoCustomers(Customers customers);
         [OperationContract] int UpgdateCustomers(Customers customers);
         [OperationContract] int DeleteCustomers(Customers customers);

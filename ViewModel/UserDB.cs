@@ -86,6 +86,14 @@ namespace ViewModel
                 return null;
             return users[0];
         }
+        public User SelectByRealId(int id)
+        {
+            command.CommandText = "SELECT * FROM tblUsers WHERE RealId=" + id;
+            UserList users = new UserList(ExecuteCommand());
+            if (users.Count == 0)
+                return null;
+            return users[0];
+        }
         public User Login(User user)
         {
             command.CommandText = $"SELECT * FROM tblUsers WHERE (RealId = '{user.realid}') AND ([password] = '{user.Password}')";
