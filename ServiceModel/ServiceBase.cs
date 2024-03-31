@@ -200,5 +200,11 @@ namespace ServiceModel
             User myusers = userdb.SelectByRealId(realId);
             return myusers;
         }
+        public BankAccountList GetBankAcouuntsByRealId(int realid)
+        {
+            BankAccountDB db = new BankAccountDB();
+            BankAccountList list = db.getbankacouuntslistbyRealId(realid);
+            return list;
+        }
     }
 }

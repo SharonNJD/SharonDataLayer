@@ -104,6 +104,14 @@ namespace ViewModel
                 return list[0];
             return null;
         }
+        public BankAccountList getbankacouuntslistbyRealId(int realid)
+        {
+            command.CommandText = $"select [dbo].[tblBankAccount].* \r\nfrom [dbo].[tblBankAccount] inner join [dbo].[tblCustomers] on [dbo].[tblBankAccount].[customerId]=[dbo].[tblCustomers].[userid]\r\ninner join [dbo].[tblUsers] on [dbo].[tblUsers].[id]=[dbo].[tblCustomers].[userid]\r\nwhere [dbo].[tblUsers].[realid]={realid}";
+            BankAccountList list = new BankAccountList(base.ExecuteCommand());
+            if (list.Count >= 1)
+                return list;
+            return null;
+        }
 
     }
 }

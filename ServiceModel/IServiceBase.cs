@@ -24,6 +24,7 @@ namespace ServiceModel
         [OperationContract] BankAccountList GetAllBankAccountList();
         [OperationContract] int InsertIntoBankAcouunt(BankAccount bankAccount);
         [OperationContract] int UpdateBankAcouunt(BankAccount bankAccount);
+        [OperationContract] BankAccountList GetBankAcouuntsByRealId(int realId);
 
         [OperationContract] AccountActionList GetbankAcouuntthattransfer(int num);
 
