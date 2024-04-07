@@ -61,7 +61,7 @@ namespace ViewModel
 
         public int Update(BankAccount bank)
         {
-            command.CommandText = "UPDATE tblBankAccount SET PersonalAcouunt = @PersonalAcouunt,CanLoan = @CanLoan,CanTransferOverSeas = @CanTransferOverSeas,CanTradeStocks = @CanTradeStocks,AdultAcouunt = @AdultAcouunt,Customer = @Customer,SecretCode = @SecretCode WHERE BankAcouuntNum = @BankAcouuntNum";
+            command.CommandText = "UPDATE tblBankAccount SET SecretCode = @SecretCode,CanLoan = @CanLoan,CanTransferOverSeas = @CanTransferOverSeas,CanTradeStocks = @CanTradeStocks,AdultAcouunt = @AdultAcouunt,PersonalAcouunt = @PersonalAcouunt,CustomerId = @CustomerId WHERE BankAcouuntNum = @BankAcouuntNum";
             LoadParameters(bank);
             return ExecuteCRUD();
         }        
