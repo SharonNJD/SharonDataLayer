@@ -34,7 +34,7 @@ namespace ViewModel
         }
         public BankAccountList SelectAll()
         {
-            command.CommandText = "SELECT * FROM tblCustomers";
+            command.CommandText = "SELECT * FROM tblBankAccount";
             BankAccountList list = new BankAccountList(ExecuteCommand());
             return list;
         }

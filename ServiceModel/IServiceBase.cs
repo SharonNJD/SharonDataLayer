@@ -26,7 +26,7 @@ namespace ServiceModel
         [OperationContract] int UpdateBankAcouunt(BankAccount bankAccount);
         [OperationContract] BankAccountList GetBankAcouuntsByRealId(int realId);
 
-        [OperationContract] AccountActionList GetbankAcouuntthattransfer(int num);
+        [OperationContract] AccountActionList GetbankAcouuntthattransfer(int num,int id);
 
         [OperationContract] BankAccount GetBankAcouuntByNum(int num);
 
@@ -56,7 +56,7 @@ namespace ServiceModel
         [OperationContract] AccountActionList SelectAllAccountAction();
 
         [OperationContract] BankAccountList GetAllBankAcouuntsByUser(User user);
-        [OperationContract] AccountActionList GetAccountActionByBankAcouunt(int id);
+        [OperationContract] AccountActionList GetAccountActionByBankAcouunt(int id,int num);
         
     }
 }

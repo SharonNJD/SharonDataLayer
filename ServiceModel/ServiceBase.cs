@@ -83,10 +83,10 @@ namespace ServiceModel
             Customers customers = db.SelectByGetById(user1);
             return customers;
         }
-        public AccountActionList GetAccountActionByBankAcouunt(int id)
+        public AccountActionList GetAccountActionByBankAcouunt(int idAcouunt, int ActionId)
         {
             AccountActionDB db = new AccountActionDB();
-            AccountActionList List = db.SelectByBankAcouuntTo(id);
+            AccountActionList List = db.SelectByBankAcouuntTo(idAcouunt, ActionId);
             return List;
         }
 
@@ -180,10 +180,10 @@ namespace ServiceModel
             BankAccount bankacouunt = db.GetBankAccountByBankNum(num);
             return bankacouunt;
         }
-        public AccountActionList GetbankAcouuntthattransfer(int id)
+        public AccountActionList GetbankAcouuntthattransfer(int idAcouunt, int ActionId)
         {
             AccountActionDB db = new AccountActionDB();
-            AccountActionList List = db.SelectByBankAcouuntFrom(id);
+            AccountActionList List = db.SelectByBankAcouuntFrom(idAcouunt, ActionId);
             return List;
         }
 

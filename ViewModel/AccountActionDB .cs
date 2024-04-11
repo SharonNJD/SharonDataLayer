@@ -77,19 +77,20 @@ namespace ViewModel
             return null;
         }
 
-        public AccountActionList SelectByBankAcouuntTo(int id)
+        public AccountActionList SelectByBankAcouuntTo(int idAcouunt, int ActionId)
         {
-            command.CommandText = "SELECT * FROM tblActionInAccount WHERE TobankAcouunt=" + id;
+            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (TobankAcouunt={idAcouunt} AND ActionId={ActionId})";
             AccountActionList list = new AccountActionList(ExecuteCommand());
             return list;
 
         }
-        public AccountActionList SelectByBankAcouuntFrom(int id)
+        public AccountActionList SelectByBankAcouuntFrom(int idAcouunt,int ActionId)
         {
-            command.CommandText = "SELECT * FROM tblActionInAccount WHERE AcountId=" + id;
+            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (AcountId={idAcouunt} AND ActionId={ActionId})";
             AccountActionList list = new AccountActionList(ExecuteCommand());
             return list;
 
         }
+
     }
 }
