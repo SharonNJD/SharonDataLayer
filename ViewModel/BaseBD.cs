@@ -63,8 +63,33 @@ namespace ViewModel
                         connection.Close();
                 }
                 return list;
+        }
+        public object ExecuteResult() //עבודה וניהול התקשורת מול המסד
+        {
+            object result = null;
+            try
+            {
+                connection.Open(); //פתיחת תקשורת עם המסד
+                reader = command.ExecuteReader(); //ביצוע השאילתה
+                while(reader.Read())
+                {
+                    result = reader[0];
+                }
             }
-          public int ExecuteCRUD() //עבודה וניהול התקשורת מול המסד
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+                if (connection.State == ConnectionState.Open)
+                    connection.Close();
+            }
+            return result;
+        }
+        public int ExecuteCRUD() //עבודה וניהול התקשורת מול המסד
         {
             int records = 0;
             try

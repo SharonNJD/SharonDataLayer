@@ -51,7 +51,12 @@ namespace ServiceModel
         public BankAccountList GetAllBankAccountList()
         {
             BankAccountDB db = new BankAccountDB();
+            AccountActionDB accountActionDB = new AccountActionDB();
             BankAccountList myBANKACOUNT = db.SelectAll();
+            foreach(BankAccount bankAccount in myBANKACOUNT)
+            {
+                bankAccount.balance = accountActionDB.GetBalanace(bankAccount.bankAcuuntNum, true) - accountActionDB.GetBalanace(bankAccount.bankAcuuntNum, false);
+            }
             return myBANKACOUNT;
         }
 
@@ -190,7 +195,12 @@ namespace ServiceModel
         public BankAccountList GetAllBankAcouuntsByUser(User user)
         {
             BankAccountDB db = new BankAccountDB();
+            AccountActionDB accountActionDB = new AccountActionDB();
             BankAccountList list = db.GetBankAcouuntsByUser(user);
+            foreach (BankAccount bankAccount in list)
+            {
+                bankAccount.balance = accountActionDB.GetBalanace(bankAccount.bankAcuuntNum, true) - accountActionDB.GetBalanace(bankAccount.bankAcuuntNum, false);
+            }
             return list;
         }
 

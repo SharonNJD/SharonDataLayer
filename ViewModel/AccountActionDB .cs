@@ -91,6 +91,15 @@ namespace ViewModel
             return list;
 
         }
-
+        public double GetBalanace(int id, bool pos)
+        {
+            command.CommandText = $" select sum([dbo].[tblActionInAccount].[amount])" +
+                $" from[dbo].[tblActionInAccount] inner join[dbo].[tblAction] on[dbo].[tblAction].id=[dbo].[tblActionInAccount].[ActionId]" +
+                $" where [dbo].[tblAction].[Adding]={(pos ? 1:0)} and [dbo].[tblActionInAccount].[AcountId]={id}";
+            object result = ExecuteResult().ToString();
+            if (result == null || result.ToString()=="") return 0;
+            double sum = double.Parse(result.ToString());
+            return sum;
+        }
     }
 }

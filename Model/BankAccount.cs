@@ -12,6 +12,7 @@ namespace Model
     {
         private int BankAcuuntNum;
         private int SecretCode;
+        private double Balance;
         private bool Canloan;
         private bool CanTransferOverSeas;
         private bool CanTradeStocks;
@@ -23,6 +24,8 @@ namespace Model
         public int bankAcuuntNum { get { return BankAcuuntNum; } set { BankAcuuntNum = value; } }
         [DataMember]
         public int secretCode { get { return SecretCode; } set { SecretCode = value; } }
+        [DataMember]
+        public double balance { get { return Balance; } set { Balance = value; } }
         [DataMember]
         public bool canloan { get { return Canloan; } set { Canloan = value; } }
         [DataMember]
