@@ -59,10 +59,6 @@
       <Project>{bcceb866-2538-429b-b876-43e3d0808159}</Project>
       <Name>CurrencyModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CurrencyService\CurrencyService.csproj">
-      <Project>{4e65e5ec-4f1f-4b7c-93d8-c4d1688cc64b}</Project>
-      <Name>CurrencyService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{a78488de-10bc-4cb6-a1a6-e19e2b6d66ba}</Project>
       <Name>Model</Name>

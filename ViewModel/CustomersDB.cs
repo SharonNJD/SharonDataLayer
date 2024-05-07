@@ -9,10 +9,11 @@ using static Model.Customers;
 
 namespace ViewModel
 {
-    public class CustomersDB : BaseDB
+    public class CustomersDB : UserDB
     {
         protected override BaseEntity CreateModel(BaseEntity entity)
         {
+            base.CreateModel(entity);
             Customers Customer = entity as Customers;
             Customer.dateOfJoining = DateTime.Parse(reader["DateOfJoining"].ToString());
          
@@ -60,13 +61,14 @@ namespace ViewModel
         }
         public CustomersList SelectAll()
         {
-            command.CommandText = "SELECT * FROM tblCustomers";
+            command.CommandText = "SELECT * FROM (tblUsers INNER JOIN tblCustomers ON tblUsers.id = tblCustomers.UserId)";
             CustomersList list = new CustomersList(ExecuteCommand());
             return list;
         }
         public Customers SelectById(int id)
         {
-            command.CommandText = $"SELECT * FROM tblCustomers WHERE (UserId = {id})";
+            command.CommandText = $"SELECT * FROM (tblUsers INNER JOIN tblCustomers ON tblUsers.id = tblCustomers.UserId)" +
+                $" WHERE (UserId = {id})";
             CustomersList list = new CustomersList(base.ExecuteCommand());
             if (list.Count == 1)
                 return list[0];
@@ -74,7 +76,8 @@ namespace ViewModel
         }
         public Customers SelectByGetById(User user)
         {
-            command.CommandText = $"SELECT * FROM tblCustomers WHERE (UserId = {user.Id})";
+            command.CommandText = $"SELECT * FROM (tblUsers INNER JOIN tblCustomers ON tblUsers.id = tblCustomers.UserId) " +
+                $"WHERE (UserId = {user.Id})";
             CustomersList list = new CustomersList(base.ExecuteCommand());
             if (list.Count == 1)
                 return list[0];

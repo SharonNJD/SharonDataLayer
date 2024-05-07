@@ -77,16 +77,16 @@ namespace ViewModel
             return null;
         }
 
-        public AccountActionList SelectByBankAcouuntTo(int idAcouunt, int ActionId)
+        public AccountActionList SelectByBankAccountTo(BankAccount bankAccount)
         {
-            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (TobankAcouunt={idAcouunt} AND ActionId={ActionId})";
+            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (TobankAcouunt={bankAccount.Id})";
             AccountActionList list = new AccountActionList(ExecuteCommand());
             return list;
 
         }
-        public AccountActionList SelectByBankAcouuntFrom(int idAcouunt,int ActionId)
+        public AccountActionList SelectByBankAccountFrom(BankAccount bankAccount)
         {
-            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (AcountId={idAcouunt} AND ActionId={ActionId})";
+            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (AcountId={bankAccount.Id} AND TobankAcouunt<>-1)";
             AccountActionList list = new AccountActionList(ExecuteCommand());
             return list;
 
@@ -100,6 +100,13 @@ namespace ViewModel
             if (result == null || result.ToString()=="") return 0;
             double sum = double.Parse(result.ToString());
             return sum;
+        }
+
+        public AccountActionList GetAccountActionByBankAccount(BankAccount bankAccount)
+        {
+            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (AcountId={bankAccount.Id})";
+            AccountActionList list = new AccountActionList(ExecuteCommand());
+            return list;
         }
     }
 }

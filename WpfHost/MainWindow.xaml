@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="400">
     <Grid>
-        <TextBlock Text="sERVICE IS OPEN" FontSize="50"></TextBlock>
+        <TextBlock Text="SERVICE IS OPEN" FontSize="50"></TextBlock>
     </Grid>
 </Window>
