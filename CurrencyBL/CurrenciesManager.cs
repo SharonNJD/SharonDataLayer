@@ -16,7 +16,9 @@ namespace CurrencyBL
     {
         private List<Currency> ParseJsyon() { return null; }
         private static string apiUrl = "https://boi.org.il/PublicApi/GetExchangeRates";
-        private static string[] symbols = new string[] {"USD - $","Shekel - ₪", "EUR - €", "GBP - £", "JPY - ¥", "CHF - ₣","CAD - 🍁",
+
+        private static string[] symbols = new string[] {"USD - $", "EUR - €", "GBP - £", "JPY - ¥", "CHF - ₣",
+
                                                         "INR - ₹", "KWD - د.ك", "AED - د.إ", "SAR - ﷼", "DEM - ₻",
                                                         "RUB - ₽","GEL - ₾","TRY - ₺","AZN - ₼","KZT - ₸","UAH - ₴",
                                                         "XRE - ₷", "THB - ฿", "KRW - 원", "VND - ₫", "MNT - ₮", "GRD - ₯",

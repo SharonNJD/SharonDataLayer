@@ -18,7 +18,7 @@ namespace ViewModel
             actionac.Action = actionDB.SelectById(int.Parse(reader["ActionId"].ToString()));
             BankAccountDB bankAccountDB = new BankAccountDB();
             actionac.BankAccount = bankAccountDB.SelectById(int.Parse(reader["AcountId"].ToString()));
-            actionac.Amount = int.Parse(reader["amount"].ToString());
+            actionac.Amount = double.Parse(reader["amount"].ToString());
             actionac.TimaStamp = DateTime.Parse(reader["TimeStamp"].ToString());
             //actionac.ToBankAcouunt = bankAccountDB.SelectById(int.Parse(reader["TobankAcouunt"].ToString()));
             return actionac;
@@ -104,7 +104,9 @@ namespace ViewModel
 
         public AccountActionList GetAccountActionByBankAccount(BankAccount bankAccount)
         {
-            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (AcountId={bankAccount.bankAcuuntNum})";
+
+            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (AcountId={bankAccount.Id})";
+
             AccountActionList list = new AccountActionList(ExecuteCommand());
             return list;
         }

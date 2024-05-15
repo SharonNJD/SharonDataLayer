@@ -60,7 +60,7 @@ namespace ServiceModel
             BankAccountDB db = new BankAccountDB();
             AccountActionDB accountActionDB = new AccountActionDB();
             BankAccountList list = db.GetBankAccountsByUser(user);
-            if (list == null) return null;
+
             foreach (BankAccount bankAccount in list)
             {
                 bankAccount.balance = accountActionDB.GetBalanace(bankAccount.bankAcuuntNum, true) - accountActionDB.GetBalanace(bankAccount.bankAcuuntNum, false);
