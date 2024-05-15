@@ -13,8 +13,8 @@ namespace Model
         private string ActionName;
         private int MinRank;
         private double CommissionTaken;
-        private bool adding;
-        private bool coinForeign;
+        private bool Adding;
+        private bool CoinForeign;
         private string CoinSymbol;
         [DataMember]
         public string actionName { get { return ActionName; } set { ActionName = value; } }
@@ -25,9 +25,9 @@ namespace Model
         [DataMember]
         public string coinSymbol { get { return CoinSymbol; } set { CoinSymbol = value; } }
         [DataMember]
-        public bool Adding { get { return adding; } set { adding = value; } }
+        public bool adding { get { return Adding; } set { Adding = value; } }
         [DataMember]
-        public bool CoinForeign { get { return coinForeign; } set { coinForeign = value; } }
+        public bool coinForeign { get { return CoinForeign; } set { CoinForeign = value; } }
 
     }
     [CollectionDataContract]

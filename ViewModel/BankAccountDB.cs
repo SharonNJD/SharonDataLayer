@@ -42,7 +42,7 @@ namespace ViewModel
             command.Parameters.AddWithValue("@CanTradeStocks", bankAccount.canTradeStocks);
             command.Parameters.AddWithValue("@AdultAcouunt", bankAccount.adultAcouunt);
             command.Parameters.AddWithValue("@PersonalAcouunt", bankAccount.personalAcouunt);
-            command.Parameters.AddWithValue("@CustomerId", bankAccount.customer.User.Id);
+            command.Parameters.AddWithValue("@CustomerId", bankAccount.customer.Id);
             command.Parameters.AddWithValue("@BankAcouuntNum", bankAccount.bankAcuuntNum);
             
         }

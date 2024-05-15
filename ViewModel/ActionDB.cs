@@ -16,8 +16,8 @@ namespace ViewModel
             action.actionName = reader["ActionName"].ToString();
             action.minRank = int.Parse(reader["MinRank"].ToString());
             action.commissionTaken = double.Parse(reader["CommissionTaken"].ToString());
-            action.Adding = bool.Parse(reader["Adding"].ToString());
-            action.CoinForeign = bool.Parse(reader["CoinForeign"].ToString());
+            action.adding = bool.Parse(reader["Adding"].ToString());
+            action.coinForeign = bool.Parse(reader["CoinForeign"].ToString());
             action.coinSymbol = reader["CoinSymbol"].ToString();
             return action;
         }
@@ -33,8 +33,8 @@ namespace ViewModel
             command.Parameters.AddWithValue("@ActionName", action.actionName);
             command.Parameters.AddWithValue("@MinRank", action.minRank);
             command.Parameters.AddWithValue("@CommissionTaken", action.commissionTaken);
-            command.Parameters.AddWithValue("@Adding", action.Adding);
-            command.Parameters.AddWithValue("@CoinForeign", action.CoinForeign);
+            command.Parameters.AddWithValue("@Adding", action.adding);
+            command.Parameters.AddWithValue("@CoinForeign", action.coinForeign);
             command.Parameters.AddWithValue("@CoinSymbol", action.coinSymbol);
             command.Parameters.AddWithValue("@id", action.Id);
         }

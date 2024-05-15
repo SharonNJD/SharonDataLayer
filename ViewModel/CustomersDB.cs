@@ -15,11 +15,8 @@ namespace ViewModel
         {
             base.CreateModel(entity);
             Customers Customer = entity as Customers;
-            Customer.dateOfJoining = DateTime.Parse(reader["DateOfJoining"].ToString());
-         
+            Customer.dateOfJoining = DateTime.Parse(reader["DateOfJoining"].ToString());         
             Customer.isNative = bool.Parse(reader["IsNative"].ToString());
-            UserDB userDB = new UserDB();
-            Customer.User = userDB.SelectById(int.Parse(reader["UserId"].ToString()));
 
 
             return Customer;
@@ -30,7 +27,7 @@ namespace ViewModel
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@DateOfJoining", Customer.dateOfJoining);
             command.Parameters.AddWithValue("@IsNative", Customer.isNative);
-            command.Parameters.AddWithValue("@UserId", Customer.User.Id);
+            command.Parameters.AddWithValue("@UserId", Customer.Id);
 
         }
         public int Insert(Customers Customer)
