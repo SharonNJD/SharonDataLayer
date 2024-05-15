@@ -20,7 +20,7 @@ namespace ViewModel
             actionac.BankAccount = bankAccountDB.SelectById(int.Parse(reader["AcountId"].ToString()));
             actionac.Amount = int.Parse(reader["amount"].ToString());
             actionac.TimaStamp = DateTime.Parse(reader["TimeStamp"].ToString());
-            actionac.ToBankAcouunt = bankAccountDB.SelectById(int.Parse(reader["TobankAcouunt"].ToString()));
+            //actionac.ToBankAcouunt = bankAccountDB.SelectById(int.Parse(reader["TobankAcouunt"].ToString()));
             return actionac;
         }
 
@@ -36,20 +36,20 @@ namespace ViewModel
             command.Parameters.AddWithValue("@AcountId", action.BankAccount.bankAcuuntNum);
             command.Parameters.AddWithValue("@amount", action.Amount);
             command.Parameters.AddWithValue("@TimeStamp", action.TimaStamp);
-            command.Parameters.AddWithValue("@TobankAcouunt", action.ToBankAcouunt.bankAcuuntNum);
+            //command.Parameters.AddWithValue("@TobankAcouunt", action.ToBankAcouunt.bankAcuuntNum);
             command.Parameters.AddWithValue("@id", action.Id);
         }
         public int Insert(AccountAction accountAction)
         {
-            command.CommandText = "INSERT INTO tblActionInAccount (ActionId,AcountId,amount,TimeStamp,TobankAcouunt)" +
-                " VALUES (@ActionId,@AcountId,@amount,@TimeStamp,@TobankAcouunt)";
+            command.CommandText = "INSERT INTO tblActionInAccount (ActionId,AcountId,amount,TimeStamp)" +
+                " VALUES (@ActionId,@AcountId,@amount,@TimeStamp)";
             LoadParameters(accountAction);
             return ExecuteCRUD();
         }
 
         public int Update(AccountAction accountAction)
         {
-            command.CommandText = "UPDATE tblActionInAccount SET ActionId = @ActionId, AcountId = @AcountId, amount = @amount,TimeStamp = @TimeStamp,TobankAcouunt = @TobankAcouunt WHERE id = @id";
+            command.CommandText = "UPDATE tblActionInAccount SET ActionId = @ActionId, AcountId = @AcountId, amount = @amount,TimeStamp = @TimeStamp WHERE id = @id";
             LoadParameters(accountAction);
             return ExecuteCRUD();
         }
@@ -77,16 +77,16 @@ namespace ViewModel
             return null;
         }
 
-        public AccountActionList SelectByBankAcouuntTo(int idAcouunt, int ActionId)
+        public AccountActionList SelectByBankAccountTo(BankAccount bankAccount)
         {
-            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (TobankAcouunt={idAcouunt} AND ActionId={ActionId})";
+            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (TobankAcouunt={bankAccount.Id})";
             AccountActionList list = new AccountActionList(ExecuteCommand());
             return list;
 
         }
-        public AccountActionList SelectByBankAcouuntFrom(int idAcouunt,int ActionId)
+        public AccountActionList SelectByBankAccountFrom(BankAccount bankAccount)
         {
-            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (AcountId={idAcouunt} AND ActionId={ActionId})";
+            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (AcountId={bankAccount.Id} AND TobankAcouunt<>-1)";
             AccountActionList list = new AccountActionList(ExecuteCommand());
             return list;
 
@@ -100,6 +100,13 @@ namespace ViewModel
             if (result == null || result.ToString()=="") return 0;
             double sum = double.Parse(result.ToString());
             return sum;
+        }
+
+        public AccountActionList GetAccountActionByBankAccount(BankAccount bankAccount)
+        {
+            command.CommandText = $"SELECT * FROM tblActionInAccount WHERE (AcountId={bankAccount.bankAcuuntNum})";
+            AccountActionList list = new AccountActionList(ExecuteCommand());
+            return list;
         }
     }
 }

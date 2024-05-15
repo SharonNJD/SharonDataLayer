@@ -32,12 +32,6 @@ namespace ViewModel
         {
             return new BankAccount() as BaseEntity;
         }
-        public BankAccountList SelectAll()
-        {
-            command.CommandText = "SELECT * FROM tblBankAccount";
-            BankAccountList list = new BankAccountList(ExecuteCommand());
-            return list;
-        }
         protected override void LoadParameters(BaseEntity entity)
         {
             BankAccount bankAccount = entity as BankAccount;
@@ -48,7 +42,7 @@ namespace ViewModel
             command.Parameters.AddWithValue("@CanTradeStocks", bankAccount.canTradeStocks);
             command.Parameters.AddWithValue("@AdultAcouunt", bankAccount.adultAcouunt);
             command.Parameters.AddWithValue("@PersonalAcouunt", bankAccount.personalAcouunt);
-            command.Parameters.AddWithValue("@CustomerId", bankAccount.customer.User.Id);
+            command.Parameters.AddWithValue("@CustomerId", bankAccount.customer.Id);
             command.Parameters.AddWithValue("@BankAcouuntNum", bankAccount.bankAcuuntNum);
             
         }
@@ -72,6 +66,12 @@ namespace ViewModel
             LoadParameters(bank);
             return ExecuteCRUD();
         }
+        public BankAccountList SelectAll()
+        {
+            command.CommandText = "SELECT * FROM tblBankAccount";
+            BankAccountList list = new BankAccountList(ExecuteCommand());
+            return list;
+        }
         public BankAccount SelectById(int id)
         {
             command.CommandText = $"SELECT * FROM tblBankAccount WHERE (CustomerId = {id})";
@@ -80,15 +80,15 @@ namespace ViewModel
                 return list[0];
             return null;
         }
-        public BankAccount SelectByGetByIduser(User user)
+        public BankAccountList GetBankAccountsByCustomers(Customers customer)
         {
-            command.CommandText = $"SELECT * FROM tblBankAccount WHERE (CustomerId = {user.Id})";
+            command.CommandText = $"SELECT * FROM tblBankAccount WHERE (CustomerId = {customer.Id})";
             BankAccountList list = new BankAccountList(base.ExecuteCommand());
-            if (list.Count == 1)
-                return list[0];
+            if (list.Count >= 1)
+                return list;
             return null;
         }
-        public BankAccountList GetBankAcouuntsByUser(User user)
+        public BankAccountList GetBankAccountsByUser(User user)
         {
             command.CommandText = $"SELECT * FROM tblBankAccount WHERE (CustomerId = {user.Id})";
             BankAccountList list = new BankAccountList(base.ExecuteCommand());
@@ -96,22 +96,5 @@ namespace ViewModel
                 return list;
             return null;
         }
-        public BankAccount GetBankAccountByBankNum(int num)
-        {
-            command.CommandText = $"SELECT * FROM tblBankAccount WHERE (BankAcouuntNum = {num})";
-            BankAccountList list = new BankAccountList(base.ExecuteCommand());
-            if (list.Count == 1)
-                return list[0];
-            return null;
-        }
-        public BankAccountList getbankacouuntslistbyRealId(int realid)
-        {
-            command.CommandText = $"select [dbo].[tblBankAccount].* \r\nfrom [dbo].[tblBankAccount] inner join [dbo].[tblCustomers] on [dbo].[tblBankAccount].[customerId]=[dbo].[tblCustomers].[userid]\r\ninner join [dbo].[tblUsers] on [dbo].[tblUsers].[id]=[dbo].[tblCustomers].[userid]\r\nwhere [dbo].[tblUsers].[realid]={realid}";
-            BankAccountList list = new BankAccountList(base.ExecuteCommand());
-            if (list.Count >= 1)
-                return list;
-            return null;
-        }
-      
     }
 }
