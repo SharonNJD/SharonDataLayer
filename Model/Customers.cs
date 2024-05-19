@@ -12,9 +12,6 @@ namespace Model
     {
         private DateTime DateOfJoining;
         private bool IsNative;
-        private User user;
-        [DataMember]
-        public User User { get { return user; } set { user = value; } }
         [DataMember]
         public DateTime dateOfJoining { get { return DateOfJoining;} set { DateOfJoining = value; } }
         [DataMember]

@@ -9,16 +9,14 @@ using static Model.Customers;
 
 namespace ViewModel
 {
-    public class CustomersDB : BaseDB
+    public class CustomersDB : UserDB
     {
         protected override BaseEntity CreateModel(BaseEntity entity)
         {
+            base.CreateModel(entity);
             Customers Customer = entity as Customers;
-            Customer.dateOfJoining = DateTime.Parse(reader["DateOfJoining"].ToString());
-         
+            Customer.dateOfJoining = DateTime.Parse(reader["DateOfJoining"].ToString());         
             Customer.isNative = bool.Parse(reader["IsNative"].ToString());
-            UserDB userDB = new UserDB();
-            Customer.User = userDB.SelectById(int.Parse(reader["UserId"].ToString()));
 
 
             return Customer;
@@ -29,7 +27,7 @@ namespace ViewModel
             command.Parameters.Clear();
             command.Parameters.AddWithValue("@DateOfJoining", Customer.dateOfJoining);
             command.Parameters.AddWithValue("@IsNative", Customer.isNative);
-            command.Parameters.AddWithValue("@UserId", Customer.User.Id);
+            command.Parameters.AddWithValue("@UserId", Customer.Id);
 
         }
         public int Insert(Customers Customer)
@@ -60,13 +58,14 @@ namespace ViewModel
         }
         public CustomersList SelectAll()
         {
-            command.CommandText = "SELECT * FROM tblCustomers";
+            command.CommandText = "SELECT * FROM (tblUsers INNER JOIN tblCustomers ON tblUsers.id = tblCustomers.UserId)";
             CustomersList list = new CustomersList(ExecuteCommand());
             return list;
         }
         public Customers SelectById(int id)
         {
-            command.CommandText = $"SELECT * FROM tblCustomers WHERE (UserId = {id})";
+            command.CommandText = $"SELECT * FROM (tblUsers INNER JOIN tblCustomers ON tblUsers.id = tblCustomers.UserId)" +
+                $" WHERE (UserId = {id})";
             CustomersList list = new CustomersList(base.ExecuteCommand());
             if (list.Count == 1)
                 return list[0];
@@ -74,7 +73,8 @@ namespace ViewModel
         }
         public Customers SelectByGetById(User user)
         {
-            command.CommandText = $"SELECT * FROM tblCustomers WHERE (UserId = {user.Id})";
+            command.CommandText = $"SELECT * FROM (tblUsers INNER JOIN tblCustomers ON tblUsers.id = tblCustomers.UserId) " +
+                $"WHERE (UserId = {user.Id})";
             CustomersList list = new CustomersList(base.ExecuteCommand());
             if (list.Count == 1)
                 return list[0];
