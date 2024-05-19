@@ -74,7 +74,7 @@ namespace ViewModel
         }
         public BankAccount SelectById(int id)
         {
-            command.CommandText = $"SELECT * FROM tblBankAccount WHERE (CustomerId = {id})";
+            command.CommandText = $"SELECT * FROM tblBankAccount WHERE (BankAcouuntNum = {id})";
             BankAccountList list = new BankAccountList(base.ExecuteCommand());
             if (list.Count == 1)
                 return list[0];
