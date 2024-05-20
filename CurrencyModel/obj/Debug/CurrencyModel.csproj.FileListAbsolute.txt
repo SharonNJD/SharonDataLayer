@@ -1,0 +1,6 @@
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyModel\bin\Debug\CurrencyModel.dll
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyModel\bin\Debug\CurrencyModel.pdb
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyModel\obj\Debug\CurrencyModel.csproj.AssemblyReference.cache
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyModel\obj\Debug\CurrencyModel.csproj.CoreCompileInputs.cache
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyModel\obj\Debug\CurrencyModel.dll
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyModel\obj\Debug\CurrencyModel.pdb

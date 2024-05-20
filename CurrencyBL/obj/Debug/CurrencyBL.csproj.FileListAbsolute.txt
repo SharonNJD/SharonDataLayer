@@ -1,0 +1,11 @@
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyBL\bin\Debug\CurrencyBL.dll
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyBL\bin\Debug\CurrencyBL.pdb
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyBL\bin\Debug\CurrencyModel.dll
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyBL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyBL\bin\Debug\CurrencyModel.pdb
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyBL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyBL\obj\Debug\CurrencyBL.csproj.AssemblyReference.cache
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyBL\obj\Debug\CurrencyBL.csproj.CoreCompileInputs.cache
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyBL\obj\Debug\CurrencyBL.csproj.Up2Date
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyBL\obj\Debug\CurrencyBL.dll
+C:\Users\charon\Downloads\SharonDataLayer (1)\SharonDataLayer2\CurrencyBL\obj\Debug\CurrencyBL.pdb
